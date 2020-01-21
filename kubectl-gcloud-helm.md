@@ -116,11 +116,15 @@
 - Get configmaps:
     `kubectl get configmaps <pod-config-name> -o yaml`
 
+
 #### Interact with pod (exec)
 
 - Connect pod:
 	`kubectl exec -it <pod-name> -n <namespace> -- bash` \
 	`kubectl exec -it <pod-name> -n <namespace> sh`
+
+- DNS
+	`cat /etc/resolv.conf`
 
 - Env vars:
     `kubectl exec <pod-name> env`

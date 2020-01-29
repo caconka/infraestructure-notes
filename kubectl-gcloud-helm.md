@@ -150,7 +150,7 @@
 	`kubectl create job test --from=cronjob/<batch-name>`
 
 - Update schedule:
-	`kubectl patch cronjob <batch-name> -p '{"spec":{"schedule": "0 10 * * *"]'`
+	`kubectl patch cronjob <batch-name> -p '{"spec":{"schedule": "0 10 * * *"}}'`
 
 ### Secrets
 

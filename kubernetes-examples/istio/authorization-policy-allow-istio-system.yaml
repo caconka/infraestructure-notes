@@ -1,0 +1,16 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-istio-system
+  namespace: care-ft-care-1234
+spec:
+  rules:
+  - from:
+    - source:
+        namespaces: ["istio-system"]
+    to:
+    - operation:
+        methods: ["GET"]
+    when:
+      - key: "request.auth.claims[iss]"
+        values: ["vista360.auth.masmovil.com", "ivr.auth.masmovil.com"]

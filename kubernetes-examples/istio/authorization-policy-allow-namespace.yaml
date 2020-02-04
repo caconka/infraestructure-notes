@@ -1,0 +1,15 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-namespace
+  namespace: care-ft-care-1234
+spec:
+  rules:
+  - from:
+    - source:
+        principals: ["cluster.local/ns/care-ft-care-1234/sa/default"]
+    to:
+    - operation:
+        methods: ["GET"]
+    - operation:
+        ports: ["6379"]

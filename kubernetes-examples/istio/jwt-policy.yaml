@@ -1,0 +1,29 @@
+apiVersion: authentication.istio.io/v1alpha1
+kind: Policy
+metadata:
+  name: mtls-authn
+  namespace: care-ft-care-1234
+spec:
+  targets:
+  - name: ms-ct-ca
+  peers:
+  - mtls: {}
+  origins:
+  - jwt:
+      issuer: "vista360.auth.masmovil.com"
+      jwksUri: "https://authn.sta.k8s.masmovil.com/.well-known/jwks.json"
+      trigger_rules:
+      - excluded_paths:
+        - exact: /metrics
+          included_paths:
+          - prefix: /
+  - jwt:
+      issuer: "ivr.auth.masmovil.com"
+      jwksUri: "https://authn.sta.k8s.masmovil.com/.well-known/jwks.json"
+      trigger_rules:
+      - excluded_paths:
+        - exact: /metrics
+          included_paths:
+          - prefix: /
+  principalBinding: USE_PEER
+  originIsOptional: true

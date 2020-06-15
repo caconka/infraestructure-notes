@@ -38,6 +38,9 @@
 	`helm delete --purge <release-name>` \
 	`helm delete --tiller-namespace <tiller-ns> --purge <release-name>`
 
+- Add repo
+	`helm repo add --username masmovil --password Oegah3nei6ohlohpohyauxae9Eifephee7aos2pi masmovil https://charts.prod-01.k8s.masmovil.com/`
+
 ### Downgrade version
 
 - https://stackoverflow.com/questions/50701224/helm-incompatible-versions-between-client-and-server
@@ -150,7 +153,7 @@
 	`kubectl create job test --from=cronjob/<batch-name>`
 
 - Update schedule:
-	`kubectl patch cronjob <batch-name> -p '{"spec":{"schedule": "0 10 * * *"}}'`
+	`kubectl patch cronjob <batch-name> -p '{"spec":{"schedule": "38 * * * *"}}'`
 
 ### Secrets
 

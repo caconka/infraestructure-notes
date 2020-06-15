@@ -99,3 +99,25 @@
 		- 0 : El p roductor no espera ningún asentimiento
 		- 1 : El productor espera asentimiento por la partición líder
 		- all : El productor espera el asentimiento por la partición líder y por las réplicas
+	- Enviar mensaje
+		- Partición
+			- Indicar la partición a la hora de enviar cada mensaje
+			- Utilizar un sistema de particionado, utilizando la propiedad `partitioner.class`
+		- Lotes
+			- `batch.size` -> Número de mensajes que conforma un lote antes de enviarlo
+			- `linger.ms` -> Tiempo máximo de espera mientras se forma el lote antes de enviarlo
+
+#### 3. Consumer
+
+- Principales propiedades
+	- `bootstrap.servers` -> Lista de *brokers* separados con comas indicando sus puertos
+	- `key.deserializer` -> Clase utilizada para deserializar las claves de los mensajes
+	- `value.deserializer` -> Clase utilizada para deserializar el payload del mensaje
+	- `group.id` -> Se utiliza para indicar que un consumidor pertenece a un grupo de consumidores
+	- **Offset Control**
+		- Se puede configurar de forma automática o manual
+			- `enable.auto.commit` -> Activación del control automático
+			- `auto.commit.interval.ms` -> Cada cuanto tiempo se actualizan los *offsets* leídos
+		- `auto.offset.reset` -> Nos permite configurar dónde queremos comenzar a leer del *topic*
+			- `earliest` -> Desde el origen del *topic*
+			- `latest` -> Desde el final del *topic*

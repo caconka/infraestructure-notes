@@ -32,7 +32,7 @@ spec:
         - containerPort: 22
         volumeMounts:
         - name: data
-          mountPath: "/home/dev_batch"
+          mountPath: "/home/mas-care"
         env:
         - name: SFTP_USER
           valueFrom:
@@ -50,31 +50,5 @@ spec:
               name: sftp
               key: host
         - name: SFTP_USERS
-          value: "$(SFTP_USER):$(SFTP_PASSWORD):1001:100:batch_dir,\
-                  data,data/Discounts,data/termicc,data/termicc/sicc,\
-                  data/Discounts/incoming,\
-                  data/Discounts/outgoing,\
-                  data/termicc/sicc/dout,\
-                  Frontal,\
-                  Frontal/Descuentos,\
-                  Frontal/dextrafolder,\
-                  Frontal/prov,\
-                  CVM_Retention,CVM_Retention/ATC,CVM_Retention/Codificaciones,CVM_Retention/Empresas,\
-                  CVM_Retention/Empresas/codificaciones,CVM_Retention/oferta,\
-                  CVM_Retention/ATC/oferta,\
-                  CVM_Retention/Codificaciones/AON,\
-                  CVM_Retention/Codificaciones/Emergia,\
-                  CVM_Retention/Codificaciones/Konecta,\
-                  CVM_Retention/Codificaciones/Marktel_Madrid,\
-                  CVM_Retention/Codificaciones/Marktel_Valencia,\
-                  CVM_Retention/Empresas/codificaciones/AON,\
-                  CVM_Retention/Empresas/codificaciones/Emergia,\
-                  CVM_Retention/Empresas/codificaciones/Konecta,\
-                  CVM_Retention/Empresas/codificaciones/Marktel_Madrid,\
-                  CVM_Retention/Empresas/codificaciones/Marktel_Valencia,\
-                  CVM_Retention/Empresas/oferta,\
-                  CVM_Retention/Empresas/penalizaciones,\
-                  CVM_Retention/oferta/Emergia,\
-                  CVM_Retention/oferta/Konecta,\
-                  CVM_Retention/oferta/Marktel_Valencia,\
-                  CVM_Retention/penalizaciones"
+          value: "$(SFTP_USER):$(SFTP_PASSWORD):1001:100:upload,\
+                  data"

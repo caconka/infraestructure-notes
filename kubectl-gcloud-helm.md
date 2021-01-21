@@ -34,6 +34,9 @@
 		`-r` reverse \
 		`-m` para ponerle un máximo, sino puede no listarte todos
 
+- Template específico
+	`helmfile  -l name=alarms-v2 template | grep ConfigMap -b10 -a10`
+
 - Delete pod:
 	`helm delete --purge <release-name>` \
 	`helm delete --tiller-namespace <tiller-ns> --purge <release-name>`
